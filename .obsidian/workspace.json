@@ -4,23 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5d91369a1f3eedfd",
+        "id": "146b4573d8d5213f",
         "type": "tabs",
         "children": [
           {
-            "id": "9019b8d14e99f409",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OS & Virtualisation/OS & Virtualisation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "03804a6d260f6888",
+            "id": "4c9ead17fef8bd9d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -159,10 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c9b7866857a9af3e",
+  "active": "4c9ead17fef8bd9d",
   "lastOpenFiles": [
     "OS & Virtualisation/OS & Virtualisation.md",
+    "Applied IoT/Assets/Pasted image 20240212110617.png",
     "Applied IoT/Applied IoT.md",
+    "Applied IoT/Assets/Pasted image 20240212110658.png",
     "Applied IoT/Assets",
     "Applied IoT",
     "OS & Virtualisation/Assets/Pasted image 20240212095743.png",
@@ -173,8 +162,6 @@
     "OS & Virtualisation/Assets/Pasted image 20240212095808.png",
     "OS & Virtualisation/Assets/Pasted image 20240212095622.png",
     "OS & Virtualisation/Assets/Pasted image 20240212093755.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212095223.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212094819.png",
     "OS & Virtualisation/Assets",
     "OS & Virtualisation",
     "Welcome.md"
