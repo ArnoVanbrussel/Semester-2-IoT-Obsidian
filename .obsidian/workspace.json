@@ -1,0 +1,166 @@
+{
+  "main": {
+    "id": "951b0c5981ebb361",
+    "type": "split",
+    "children": [
+      {
+        "id": "5d91369a1f3eedfd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9019b8d14e99f409",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OS & Virtualisation/OS & Virtualisation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "903bc66b4976e9d5",
+    "type": "split",
+    "children": [
+      {
+        "id": "38ae1456d299f6be",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c9b7866857a9af3e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fd5a9e7151445516",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e95dec0889a51596",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ddf663d5a68899c5",
+    "type": "split",
+    "children": [
+      {
+        "id": "fe70d9e6c9de68eb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1f9a8e00e2a83743",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "OS & Virtualisation/OS & Virtualisation.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1e673d1081e1c50b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "OS & Virtualisation/OS & Virtualisation.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1e32b7ed9eaef2f0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "20ba09b4ff72edd4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "OS & Virtualisation/OS & Virtualisation.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "9019b8d14e99f409",
+  "lastOpenFiles": [
+    "OS & Virtualisation/Assets/Pasted image 20240212095743.png",
+    "OS & Virtualisation/OS & Virtualisation.md",
+    "OS & Virtualisation/Assets/Pasted image 20240212101353.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212101335.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212100444.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212095838.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212095808.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212095622.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212093755.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212095223.png",
+    "OS & Virtualisation/Assets/Pasted image 20240212094819.png",
+    "OS & Virtualisation/Assets",
+    "OS & Virtualisation",
+    "Welcome.md"
+  ]
+}
