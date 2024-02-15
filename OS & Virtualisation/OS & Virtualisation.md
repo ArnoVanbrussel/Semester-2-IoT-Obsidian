@@ -169,3 +169,116 @@
 ### The digital computer
 > We may want to automate some sequences of operations
 
+# Week 1 - Labo
+## Computer architecture
+- Components we already have:
+	- ALU
+	- Registers / Memory
+- Programming / Automation
+	- Execute a sequence of instructions automatically
+	- We need a clock
+		- [Frequentie](https://nl.wikipedia.org/wiki/Kloksnelheid#:~:text=Een%20kloksnelheid%20van%201%20Hz,per%20seconde%20hun%20bewerkingen%20uit.) (Hertz)
+		- Synchronize all operations
+		- Go to next instruction cycle
+	- We need to keep track of the current instruction
+	- We need somewhere to store the instructions
+
+> We need to keep track of the current instruction. We use a special purpose register "PC"; the Program Counter.
+
+### CPU - Central processing unit
+- Contains
+	- ALU
+	- Control logic
+	- Register
+![[Pasted image 20240214085604.png|300]]![[Pasted image 20240214085612.png|400]]
+> We need somewhere to store the instructions. A memory for the program: "program" or "instruction memory". Should this be RAM? ROM? Should it be the same as general memory.
+
+#### [Harvard Architecture](https://en.wikipedia.org/wiki/Harvard_architecture) **EXAMEN**
+- Separate memory for instructions and data
+- **Pro's:**
+	- Snellere instructie-uitvoering
+		- Harvard-architectuur maakt gelijktijdige toegang tot instructies en gegevens mogelijk, wat kan leiden tot snellere instructie-uitvoering.
+	- Betere prestaties voor specifieke toepassingen
+		- In bepaalde toepassingen, zoals ingebedde systemen, kan de Harvard-architectuur efficiënter zijn vanwege de gelijktijdige toegang tot instructies en gegevens.
+	- Verhoogde parallelle verwerking
+		- Harvard-architectuur maakt het gemakkelijker om parallelle verwerking te implementeren vanwege de afzonderlijke gegevens- en instructiebussen.
+- **Con's:**
+	- Complexiteit van ontwerp
+		- Implementatie van Harvard-architectuur kan complexer zijn vanwege de noodzaak van afzonderlijke bussen voor instructies en gegevens.
+	- Kosten
+		- De extra hardware die nodig is voor afzonderlijke bussen kan leiden tot hogere kosten.
+![[Pasted image 20240214090027.png|350]]![[Pasted image 20240214090233.png|350]]
+#### [Von Neumann Architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) **EXAMEN**
+- Same memory is used for instructions and data
+- Groot voordeel: Self Modifying Code
+- **Pro's:**
+	- Eenvoudig ontwerp
+		- Von Neumann-architectuur heeft een eenvoudiger ontwerp met één gemeenschappelijke bus voor zowel instructies als gegevens.
+	- Kost-efficiëntie
+		- Omdat het ontwerp minder complex is, kunnen systemen gebaseerd op de Von Neumann-architectuur vaak kost effectiever zijn.
+	- Flexibiliteit
+		- De architectuur is flexibeler en gemakkelijker aan te passen aan verschillende toepassingen.
+- **Con's:**
+	- Langzamere instructie-uitvoering
+		- Omdat instructies en gegevens dezelfde bus delen, kan dit leiden tot langzamere instructie-uitvoering in vergelijking met Harvard-architectuur.
+	- Beperkte parallelle verwerking
+		- Von Neumann-architectuur heeft beperktere mogelijkheden voor parallelle verwerking in vergelijking met Harvard-architectuur.
+![[Pasted image 20240214090043.png|350]]![[Pasted image 20240214090240.png|350]]
+> Funny old computer: [Altair 8800](https://nl.wikipedia.org/wiki/Altair_8800)/ [Altair 8800](https://oldcomputers.net/altair-8800.html)
+> Fun example: NES
+> 	Cartridge: Instruction memory
+> 		(ROM - Read only memory, basically I-RAM)
+
+#### [Instruction Set Architecture](https://en.wikipedia.org/wiki/Instruction_set_architecture)
+- What instructions are supported by a CPU?
+- **ISA** "Instruction Set Architecture"
+- Set of supported opcodes
+
+> Example x86: [https://en.wikipedia.org/wiki/X86_instruction_listings](https://en.wikipedia.org/wiki/X86_instruction_listings)
+
+- [CISC](https://en.wikipedia.org/wiki/Complex_instruction_set_computer): Complex Instruction Set Computer
+- [RISC](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer): Reduced Instruction Set Computer
+- [Turing complete systems](https://en.wikipedia.org/wiki/Turing_completeness):
+	- Any Turing complete machine can perform any task of another Turing machine. (given infinite memory and time) (This will be revisited later)
+
+##### Example: [Z80 CPU]([https://en.wikipedia.org/wiki/Zilog_Z80](https://en.wikipedia.org/wiki/Zilog_Z80))
+![[Pasted image 20240214094849.png]]![[Pasted image 20240214094912.png]]![[Pasted image 20240214094930.png]]
+
+- 2 distinct use cases
+	- Exact use scenario is known at time of design
+		- Machine controller
+		- Dedicated computer system
+	- Use case is unknown at time of design
+		- PC, Laptop
+		- Universal computer system
+
+#### Dedicated computer system
+- Specifications are known
+- Functions
+- Estimation of required instruction and RAM size
+- Peripherals
+- Can be optimized for the task at hand
+- Usually smaller footprint devices
+- Often completely self contained (RAM+ROM+Peripherals+...)
+- **MCU or Micro Controller Unit**
+#### Universal computer system
+- **MPU or Micro Processor Unit**
+- Does need external support components
+- Differences are fading; see SoC systems later
+- Must be expandable
+#### Input and output devices
+- Interfaces to the computer system can be:
+	- Memory mapped I/O
+	- PIO- Programmed Input/Output:
+		- CPU controls I/O operations
+	- DMA - Direct Memory Access:
+		- Devices access system RAM
+	- Integrated peripherals
+		- Needs specific instructions in ISA
+#### Software and portability
+- There are a lot of flexibilities in system design
+- The 'program' currently is specific to the utilized:
+	- ISA
+	- CPU implementation
+	- System architecture
+	- Present devices and configuration

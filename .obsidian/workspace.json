@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "146b4573d8d5213f",
+        "id": "1ef576ece1bc88a8",
         "type": "tabs",
         "children": [
           {
-            "id": "4c9ead17fef8bd9d",
+            "id": "b7986e7e93518cdd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Applied IoT/Applied IoT.md",
+                "file": "Network Infrastructure/Network Infrastructure.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "ddf663d5a68899c5",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Applied IoT/Applied IoT.md",
+                "file": "Network Infrastructure/Network Infrastructure.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Applied IoT/Applied IoT.md",
+                "file": "Network Infrastructure/Network Infrastructure.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Applied IoT/Applied IoT.md"
+                "file": "Network Infrastructure/Network Infrastructure.md"
               }
             }
           }
@@ -146,23 +146,29 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4c9ead17fef8bd9d",
+  "active": "b7986e7e93518cdd",
   "lastOpenFiles": [
-    "README.md",
+    "Static_Routing.pdf",
+    "IP Routing.pdf",
+    "Network Infrastructure/assets/IP Addressing.pdf",
+    "Network Infrastructure/Network Infrastructure.md",
+    "OS & Virtualisation/Assets/Pasted image 20240214090233.png",
+    "Network Infrastructure/assets",
+    "Network Infrastructure",
     "OS & Virtualisation/OS & Virtualisation.md",
-    "Applied IoT/Assets/Pasted image 20240212110617.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214094930.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214094912.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214094849.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214090240.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214090043.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214090027.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214090025.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214085612.png",
+    "OS & Virtualisation/Assets/Pasted image 20240214085604.png",
     "Applied IoT/Applied IoT.md",
-    "Applied IoT/Assets/Pasted image 20240212110658.png",
+    "README.md",
     "Applied IoT/Assets",
     "Applied IoT",
-    "OS & Virtualisation/Assets/Pasted image 20240212095743.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212101353.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212101335.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212100444.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212095838.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212095808.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212095622.png",
-    "OS & Virtualisation/Assets/Pasted image 20240212093755.png",
     "OS & Virtualisation/Assets",
     "OS & Virtualisation",
     "Welcome.md"
