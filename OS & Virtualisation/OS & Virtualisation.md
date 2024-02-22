@@ -282,3 +282,27 @@
 	- CPU implementation
 	- System architecture
 	- Present devices and configuration
+# Week 2
+## We have a working "computer"
+- Computer system with CPU and memory
+- I/O devices
+- All built from the simplest logic elements
+- Now we need to tell it what to do => List of instructions => Software
+### Software
+- List of instructions the CPU can execute
+- Machine instruction = OPCODE + OPERAND
+![[Pasted image 20240219090053.png]]
+#### OPCODE and Operands
+- OPCODE is a specific instruction from the ISA
+- Operates on operands (most literals or memory address locations)
+![[Pasted image 20240219090134.png]]
+#### Getting to a known state
+- RESET
+- Set PC to 0
+- RUN/STOP
+- Begin execution from PC, increment PC after each execution cycle
+- ROM
+- Start of program at lowest Addresses of RAM (or Instruction memory)
+- Diode matrix (Decoder + soldered diode array)
+- (E)EPROM
+![[Pasted image 20240219102434.png|350]]![[Pasted image 20240219102444.png|250]]

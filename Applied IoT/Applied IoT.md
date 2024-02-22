@@ -28,3 +28,24 @@
 	- Plain text
 	- Binary string
 	- JSON
+# Week 2
+## ESP32
+- SoC low cost IoT device
+	- System on Chip
+- It's created and developed by Esprissif Systems
+- It is a microprocessor with built-in Wi-Fi, Radio Frequency and Bluetooth
+- It achieves ultra-low power consumption
+### ESP32 Break-out board
+- Why?
+	- Cheap
+	- Micropython
+	- Wi-Fi, Radio Frequency and bluetooth
+	- Ultra-low power consumption
+### Power Supply
+- There are three mutually exclusive ways to provide power to the board
+	- Micro USB port
+	- 5V/Gnd header pins
+	- 3V3/GND header pins
+### GPIO Pins
+- All GPIO pins run at 3.3V
+- Lot of versions
