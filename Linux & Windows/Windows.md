@@ -36,3 +36,10 @@
 	- Exclude range!
 	- Reservations = IP address + MAC address
 - DHCP Replication
+
+### Permissions
+- Share Permissions
+	- Default = Everyone Read
+	- Set to = Everyone Full Control
+- NTFS Permissions
+- Most Restrictive

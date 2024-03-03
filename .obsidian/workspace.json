@@ -8,24 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b7986e7e93518cdd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "f6ebb8b5bf82190e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Network Infrastructure/Network Infrastructure.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "363a8cbf5630e821",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cisco NWI/NWI - Intro.md",
                 "mode": "source",
                 "source": false
               }
@@ -82,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "ddf663d5a68899c5",
@@ -98,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Network Infrastructure/Network Infrastructure.md",
+                "file": "Cisco NWI/NWI - Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network Infrastructure/Network Infrastructure.md",
+                "file": "Cisco NWI/NWI - Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network Infrastructure/Network Infrastructure.md"
+                "file": "Cisco NWI/NWI - Intro.md"
               }
             }
           }
@@ -159,23 +160,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f6ebb8b5bf82190e",
+  "active": "363a8cbf5630e821",
   "lastOpenFiles": [
-    "README.md",
-    "Network Infrastructure/assets/Pasted image 20240222084551.png",
-    "Network Infrastructure/assets/IP Routing.pdf",
+    "Pasted image 20240303171922.png",
+    "Pasted image 20240303164856.png",
+    "Pasted image 20240303164527.png",
+    "Pasted image 20240303115509.png",
+    "Pasted image 20240303115430.png",
+    "Pasted image 20240303114551.png",
+    "Pasted image 20240303114524.png",
+    "Pasted image 20240303114342.png",
+    "Pasted image 20240303114336.png",
+    "Pasted image 20240303114146.png",
+    "Pasted image 20240303113850.png",
     "Network Infrastructure/Network Infrastructure.md",
-    "Network Infrastructure/assets/Pasted image 20240222085653.png",
-    "Network Infrastructure/assets/Pasted image 20240222085604.png",
-    "Network Infrastructure/assets/Pasted image 20240222085551.png",
-    "Network Infrastructure/assets/Pasted image 20240222085537.png",
-    "Network Infrastructure/assets/Pasted image 20240222085519.png",
-    "Network Infrastructure/assets/Pasted image 20240222085504.png",
-    "Network Infrastructure/assets/Pasted image 20240222085448.png",
-    "Network Infrastructure/assets/Pasted image 20240222085408.png",
-    "Network Infrastructure/assets/Pasted image 20240222085229.png",
-    "Applied IoT/Applied IoT.md",
+    "Cisco NWI/NWI - Intro.md",
+    "Cisco NWI",
     "Linux & Windows/Windows.md",
+    "README.md",
+    "Network Infrastructure/assets/IP Routing.pdf",
+    "Applied IoT/Applied IoT.md",
     "OS & Virtualisation/OS & Virtualisation.md",
     "Linux & Windows",
     "Network Infrastructure/assets/Static_Routing.pdf",
@@ -185,7 +189,6 @@
     "Applied IoT/Assets",
     "Applied IoT",
     "OS & Virtualisation/Assets",
-    "OS & Virtualisation",
     "Welcome.md"
   ]
 }
