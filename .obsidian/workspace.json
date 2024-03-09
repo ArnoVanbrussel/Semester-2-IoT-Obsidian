@@ -18,6 +18,16 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6b8a1a18bf80474c",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Cisco NWI/Assets/Pasted image 20240304094620.png"
+              }
+            }
           }
         ]
       }
@@ -69,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "ddf663d5a68899c5",
@@ -149,21 +158,21 @@
   },
   "active": "c916f8f6b4de0df8",
   "lastOpenFiles": [
-    "Pasted image 20240309093505.png",
-    "Pasted image 20240309093303.png",
-    "Pasted image 20240309092818.png",
-    "Pasted image 20240307095453.png",
-    "Pasted image 20240307095406.png",
-    "Pasted image 20240307095303.png",
-    "2.3.7-packet-tracer---navigate-the-ios.pka",
-    "Pasted image 20240304100743.png",
-    "Pasted image 20240304094633.png",
-    "Pasted image 20240304094620.png",
-    "Network Infrastructure/Network Infrastructure.md",
-    "Cisco NWI/Assets/Pasted image 20240303104149 1.png",
-    "Cisco NWI/Assets/Pasted image 20240303104450 1.png",
-    "Cisco NWI/Assets",
+    "Pasted image 20240309095303.png",
+    "Pasted image 20240309094932.png",
+    "Cisco NWI/Assets/Pasted image 20240304094620.png",
     "Cisco NWI/NWI - Intro.md",
+    "Cisco NWI/Assets/Pasted image 20240309093505.png",
+    "Cisco NWI/Assets/Pasted image 20240309093303.png",
+    "Cisco NWI/Assets/Pasted image 20240309092818.png",
+    "Cisco NWI/Assets/Pasted image 20240307095453.png",
+    "Cisco NWI/Assets/Pasted image 20240307095406.png",
+    "Cisco NWI/Assets/Pasted image 20240307095303.png",
+    "2.3.7-packet-tracer---navigate-the-ios.pka",
+    "Cisco NWI/Assets/Pasted image 20240304100743.png",
+    "Cisco NWI/Assets/Pasted image 20240304094633.png",
+    "Network Infrastructure/Network Infrastructure.md",
+    "Cisco NWI/Assets",
     "Cisco NWI",
     "Linux & Windows/Windows.md",
     "README.md",

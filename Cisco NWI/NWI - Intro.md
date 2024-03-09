@@ -1353,35 +1353,146 @@ Switch(config-if)#no shutdown
     - TCP's Role: Responsible for sequencing individual segments.
 ![[Pasted image 20240309093303.png]]
 ### 3.6.3 Protocol Data Units
-- **  
-    Encapsulation Process:**
-    
+- **Encapsulation Process:**
     - Definition: Protocol information added at each level as data passes down the protocol stack.
     - Result: Formation of a Protocol Data Unit (PDU) at each layer.
 - **PDU Naming Convention:**
-    
     - Terminology: PDUs named according to TCP/IP suite protocols.
     - Example: UDP PDU called a datagram; IP packets sometimes referred to as IP datagrams.
 - **Encapsulation Steps (Based on TCP/IP Suite):**
-    
     - Application Layer: Email data divided into smaller chunks (Data PDU).
     - Transport Layer: Adds a transport header, forming a Segment (Transport layer PDU).
     - Network Layer: Adds a network header, creating a Packet (Network layer PDU).
     - Data Link Layer: Adds a frame header and trailer, resulting in a Frame (Data Link layer PDU).
     - Physical Layer: Represents the Frame as a stream of bits for transmission over the medium (Bits PDU).
-- **Illustrative Figure:**
-    
-    - Visual Representation: Person at a computer sending email data.
-    - Data Flow: Email data encapsulated into new PDUs at each layer.
-    - Transmission: Bits representing the Frame before reaching a router connected to the cloud.
 - **PDU Types:**
-    
     - Data: General term for the PDU at the application layer.
     - Segment: Transport layer PDU.
     - Packet: Network layer PDU.
     - Frame: Data Link layer PDU.
     - Bits: Physical layer PDU used for physical data transmission over the medium.
 - **Note on Transport Header:**
-    
     - TCP vs. UDP: If the Transport header is TCP, it is a Segment; if UDP, it is a Datagram.
 ![[Pasted image 20240309093505.png]]
+## 3.7 Data Access
+### 3.7.1 Addresses
+- **Message Addressing:**
+    - Ensure proper addressing for segmented message transmission.
+- **Network Addresses:**
+    - Network and Data Link layers facilitate data delivery.
+    - Types:
+        - Network Layer: IP packets across networks.
+        - Data Link Layer: Frames between NICs on the same network.
+- **Wireshark Tool:**
+    - View network traffic, gain insights.
+- **OSI Model Addressing:**
+    - Physical Layer: Timing and synchronization bits.
+    - Data Link Layer: Physical addresses.
+    - Network Layer: Logical network addresses.
+    - Transport Layer: Process number (ports)
+    - Upper Layers: Encoded application data
+- **Addressing Roles:**
+    - Physical Layer: Focus on physical data transmission.
+    - Data Link and Network Layers: Addressing for proper data delivery.
+### 3.7.2 Layer 3 Logical Address
+- **IP Address Overview:**
+    - Function: Network layer (Layer 3) logical address for delivering IP packets.
+- **IP Packet Components:**
+    - Source IP Address
+    - Destination IP Address
+- **Address Purpose:**
+    - Indicates: Original source and final destination IP addresses.
+    - Applicability: Same or different IP networks.
+- **IP Address Structure:**
+    - Two Parts:
+        - Network Portion (IPv4) or Prefix (IPv6): Indicates the network membership.
+        - Host Portion (IPv4) or Interface ID (IPv6): Identifies a specific device on the network.
+- **Note on Subnet Mask or Prefix-Length:**
+    - Role: Used to distinguish network and host portions in an IP address.
+### 3.7.3 Devices on the Same Network
+![[Pasted image 20240309094932.png]]
+### 3.7.4 Role of the Data Link Layer Addresses: Same IP Network
+- if senderNetwork = receiverNetwork:
+	- data link frame sent directly to receiving device
+- Data link addresses
+	- AKA. Ethernet Media Access Control (MAC) addresses
+	- Physically embedded on NIC
+### 3.7.5 Devices on a Remote Network
+![[Pasted image 20240309095303.png]]
+### 3.7.6 Role of Network Layer Addresses
+- if senderNetwork != receiverNetwork:
+	- source and destination IP will represent hosts on different networks
+### 3.7.7 Role of the Data Link Layer Addresses: Different IP Networks
+- if senderNetwork != receiverNetwork:
+	- source and destination IP will represent hosts on different networks
+	- frame sent to router/default gateway
+### 3.7.8 Data Link Addresses
+- **IP Packet Encapsulation:**
+    - Process: As IP packet travels, it is encapsulated in new data link frames.
+    - Purpose: Each frame includes source and destination data link addresses.
+- **Data Link Protocol Usage:**
+    - Role: Used for NIC-to-NIC communication on the same network.
+    - Transition: Removed by the router upon reception and added before forwarding to the next NIC.
+- **Data Link Frame Information:**
+    - Encapsulation: IP packet encapsulated in a data link frame.
+    - Components:
+        - Source Data Link Address: Physical address of the sending NIC.
+        - Destination Data Link Address: Physical address of the receiving NIC.
+- **Router Involvement:**
+    - Function: Router removes Layer 2 information upon receiving a frame, adds new data link information before forwarding.
+    - Destination Address: Can be the next hop router or the final destination device.
+
+> This process continues as the IP packet traverses through the network, with each router handling the encapsulation and forwarding of the data link frame based on the destination data link address.
+
+# 4 Physical Layer
+## 4.1 Purpose of the Physical Layer
+### 4.1.1 The Physical Connection
+- **Physical Network Connection Overview:**
+    - Requirement: Physical connection needed for any network communication, either wired or wireless.
+- **Wired Network Setup:**
+    - Example: Corporate offices often use desktops physically connected via cables to a shared switch.
+    - Transmission: Data is transmitted through physical cables.
+- **Wireless Network Setup:**
+    - Alternative: Businesses and homes offer wireless connections using radio waves.
+    - Components: Wireless devices connect to a wireless access point (AP) or wireless router.
+- **Access Point Components:**
+    - Wireless Antennas: Transmit and receive signals (embedded in routers).
+    - Ethernet Switchports: Used for wired connections.
+    - Internet Port: Connects to the internet.
+- **Home Network Connectivity:**
+    - Common Setup: Most homes offer both wired and wireless connectivity.
+    - Devices: Home routers facilitate connections, while laptops and devices may connect to the local area network (LAN).
+- **Network Interface Cards (NICs):**
+    - Function: Connect devices to the network.
+    - Types:
+        - Ethernet NICs: Wired connections.
+        - WLAN NICs: Wireless connections.
+- **Device Variability:**
+    - Example: Network printers may only have Ethernet NICs.
+    - User Devices: Tablets and smartphones might exclusively use WLAN NICs.
+- **Performance Differences:**
+    - Not All Equal: Physical connections vary in terms of performance levels when connecting to a network.
+## 4.2 Physical Layer Characteristics
+### 4.2.1 Physical Layer Standards
+- **Overview of Physical Layer:**
+    - **Components:** Includes electronic circuitry, media, and connectors.
+- **Software and Protocol Development:**
+    - **Upper OSI Layers:** Protocols and operations at upper OSI layers are implemented using software developed by computer scientists and software engineers.
+    - **TCP/IP Suite:** Protocols and services are defined by the Internet Engineering Task Force (IETF).
+- **Hardware Standards and Organizations:**
+    - **Standards Development:** Hardware standards are crucial, and they are established by relevant electrical and communications engineering organizations.
+    - **International Organizations:**
+        - International Organization for Standardization (ISO)
+        - Telecommunications Industry Association/Electronic Industries Association (TIA/EIA)
+        - International Telecommunication Union (ITU)
+        - American National Standards Institute (ANSI)
+        - Institute of Electrical and Electronics Engineers (IEEE)
+    - **Regional and National Bodies:**
+        - National telecommunications regulatory authorities, e.g., Federal Communication Commission (FCC) in the USA, European Telecommunications Standards Institute (ETSI).
+        - Regional cabling standards groups like CSA (Canadian Standards Association), CENELEC (European Committee for Electrotechnical Standardization), and JSA/JIS (Japanese Standards Association).
+### 4.2.2 Physical Components
+- **Definition:** Encompasses electronic hardware devices, media, and connectors transmitting signals representing bits.
+- **Examples:** NICs, interfaces, connectors, cable materials, and designs.
+- **Cisco 1941 Router:** Illustrates specific ports and interfaces adhering to physical layer standards.
+### 4.2.3 Encoding
+### 4.2.4 Signaling
