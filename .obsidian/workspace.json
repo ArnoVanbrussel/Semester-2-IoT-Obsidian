@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "227b541d447a8840",
+        "id": "fd7870a07d1a3935",
         "type": "tabs",
         "children": [
           {
-            "id": "dc50f68422ba797b",
+            "id": "9242f626c2feffbc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Applied IoT/Applied IoT.md",
+                "file": "Linux & Windows/Linux/Linux Practical Guide.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Applied IoT/Applied IoT.md",
+                "file": "Linux & Windows/Linux/Linux Practical Guide.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Applied IoT/Applied IoT.md",
+                "file": "Linux & Windows/Linux/Linux Practical Guide.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Applied IoT/Applied IoT.md"
+                "file": "Linux & Windows/Linux/Linux Practical Guide.md"
               }
             }
           }
@@ -146,8 +146,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c9b7866857a9af3e",
+  "active": "9242f626c2feffbc",
   "lastOpenFiles": [
+    "Pasted image 20240428151925.png",
+    "Applied IoT/Applied IoT.md",
     "Network Infrastructure/Lab3.3/AP-Lab3.3.txt",
     "Network Infrastructure/Lab3.3/L2-Switch-Lab3.3.txt",
     "Network Infrastructure/Lab3.3/config-pfsense-labo3.3.xml",
@@ -158,7 +160,6 @@
     "Network Infrastructure/Lab3.1/labo3.1-layer2",
     "Network Infrastructure/Lab3.1/lab type 3.1 commands.txt",
     "Network Infrastructure/Lab3.1/BR_DHCP_Lab3.1",
-    "Network Infrastructure/Lab3.1",
     "OS & Virtualisation/OS & Virtualisation.md",
     "Network Infrastructure/Network Infrastructure.md",
     "Linux & Windows/Linux/Linux Practical Guide.md",
@@ -177,7 +178,6 @@
     "Cisco NWI/Assets/Pasted image 20240304094620.png",
     "Cisco NWI/Assets/Pasted image 20240309095303.png",
     "README.md",
-    "Applied IoT/Applied IoT.md",
     "Welcome.md"
   ]
 }
