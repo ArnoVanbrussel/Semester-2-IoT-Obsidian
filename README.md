@@ -3,4 +3,9 @@
   - OS & Virtualisation
   - Applied IoT
   - Linux & Windows
+  -   Linux Practical Guide
+  -   Windows Practical Guide
+  -   Linux Theory
+  -   Windows Theory
   - Network Infrastructure
+  -   Lab Configs
