@@ -4,32 +4,59 @@
     "type": "split",
     "children": [
       {
-        "id": "028d9db7eea9717f",
+        "id": "451dc00e73a5dcfa",
         "type": "tabs",
         "children": [
           {
-            "id": "c916f8f6b4de0df8",
+            "id": "6f5679b9b161247a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cisco NWI/NWI - Intro.md",
+                "file": "Linux & Windows/Windows/Windows Theorie.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "6b8a1a18bf80474c",
+            "id": "a12659051bc2d6d5",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Cisco NWI/Assets/Pasted image 20240304094620.png"
+                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b8f47f46431462b8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux & Windows/Windows/Windows Theorie.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7b0b4ed37bb3c151",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -95,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cisco NWI/NWI - Intro.md",
+                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cisco NWI/NWI - Intro.md",
+                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cisco NWI/NWI - Intro.md"
+                "file": "Linux & Windows/Windows/Windows Table of Contents.md"
               }
             }
           }
@@ -156,25 +183,30 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c916f8f6b4de0df8",
+  "active": "c9b7866857a9af3e",
   "lastOpenFiles": [
-    "Pasted image 20240309095303.png",
-    "Pasted image 20240309094932.png",
-    "Cisco NWI/Assets/Pasted image 20240304094620.png",
+    "Linux & Windows/Assets/Pasted image 20240428112242.png",
+    "Linux & Windows/Windows/Windows Practical Guide.md",
+    "Linux & Windows/Assets",
+    "Linux & Windows/Assets/Pasted image 20240428112752.png",
+    "Linux & Windows/Assets/Pasted image 20240428112738.png",
+    "Linux & Windows/Assets/Pasted image 20240428112724.png",
+    "Linux & Windows/Assets/Pasted image 20240428112645.png",
+    "Linux & Windows/Assets/Pasted image 20240428112632.png",
+    "Linux & Windows/Assets/Pasted image 20240428112550.png",
+    "Linux & Windows/Windows/Windows Theorie.md",
+    "Linux & Windows/Windows",
+    "Linux & Windows/Linux/Linux.md",
+    "Linux & Windows/Windows/Windows Table of Contents.md",
+    "Linux & Windows/Linux",
     "Cisco NWI/NWI - Intro.md",
-    "Cisco NWI/Assets/Pasted image 20240309093505.png",
-    "Cisco NWI/Assets/Pasted image 20240309093303.png",
-    "Cisco NWI/Assets/Pasted image 20240309092818.png",
-    "Cisco NWI/Assets/Pasted image 20240307095453.png",
-    "Cisco NWI/Assets/Pasted image 20240307095406.png",
-    "Cisco NWI/Assets/Pasted image 20240307095303.png",
+    "Cisco NWI/Assets/Pasted image 20240309094932.png",
+    "Cisco NWI/Assets/Pasted image 20240304094620.png",
+    "Cisco NWI/Assets/Pasted image 20240309095303.png",
     "2.3.7-packet-tracer---navigate-the-ios.pka",
-    "Cisco NWI/Assets/Pasted image 20240304100743.png",
-    "Cisco NWI/Assets/Pasted image 20240304094633.png",
     "Network Infrastructure/Network Infrastructure.md",
     "Cisco NWI/Assets",
     "Cisco NWI",
-    "Linux & Windows/Windows.md",
     "README.md",
     "Network Infrastructure/assets/IP Routing.pdf",
     "Applied IoT/Applied IoT.md",
@@ -182,9 +214,6 @@
     "Linux & Windows",
     "Network Infrastructure/assets/Static_Routing.pdf",
     "Network Infrastructure/assets/IP Addressing.pdf",
-    "Network Infrastructure/assets",
-    "Network Infrastructure",
-    "Applied IoT/Assets",
     "Welcome.md"
   ]
 }

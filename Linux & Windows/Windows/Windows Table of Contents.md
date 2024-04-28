@@ -1,0 +1,27 @@
+- 0. My Best Practices in a Windows Server Environment v1.1 - Scripted
+- 0. My Best Practices in a Windows Server Environment v2.3
+- 2.1. Installing Windows Server 2016
+- 4.1. Setting up Active Directory in Windows Server 2016
+- 4.2 Add another Domain Controller (DC) on Active Directory
+- 5.1. Configuring a DNS Reverse Lookup Zone in Windows Server
+- 5.1. Configuring a DNS Reverse Lookup Zone in Windows Server
+- 6.2. Configuring DHCP Failover on Windows Server 2016
+- 7.1 Setting up Active Directory Sites, Subnets and Site-Links
+- 7.1 Setting up Active Directory Sites, Subnets and Site-Links
+- 11.1. GP Policy vs. Preference vs. GP preferences
+- 11.2 How to create and manage the Central Store for Group  Policy Administrative Templates in Windows.pdf
+- 11.3. Software Installation Using Group Policies
+- 11.4. Step by Step Deploying Software using Group Policy in Windows Server 2016
+- 12.1. Install & Configure Print Services in Windows Server 2016
+- 12.2. How to Configure Printer Pooling
+- 12.3. Configuring a printer’s availability during and outside business hours
+- 12.4. Deploy Printers in Domain using Group Policy
+- 12.5. Configuring Printer Security
+- 13.1. Introduction to Active Directory Administrative Center Enhancements
+- 14.1. DFS Namespaces overview and deploy
+- 16.1. Network Policy Server (NPS)
+- 16.2. Deploy Password-Based 802.1X Authenticated Wireless Access
+- 16.3. 802.1X Setup for Windows 10
+- 17.1. How to install IIS in Windows Server 2019
+- 17.2. How to install and configure FTP Server on Windows Server 2019
+- 17.3. Installing a Secure FTP Server on Windows using IIS
