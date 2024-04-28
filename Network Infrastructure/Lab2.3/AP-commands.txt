@@ -1,0 +1,167 @@
+enable
+configure terminal
+!
+hostname Cisco_AP
+!
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+logging rate-limit console 9
+enable secret 5 $1$SMAM$ywkIDGwoQV2bG8Te3U8.Z1
+!
+no aaa new-model
+clock timezone CET 1 0
+clock summer-time CET recurring last Sun Mar 2:00 last Sun Oct 3:00
+no ip source-route
+no ip cef
+!
+dot11 pause-time 100
+dot11 syslog
+!
+dot11 ssid company-<firstname>.<lastname>
+   vlan <VID1>
+   authentication open 
+   authentication key-management wpa version 2
+   mbssid guest-mode
+   wpa-psk ascii 7 123A0C0411042F0D39282B
+!
+dot11 ssid guest-<firstname>.<lastname>
+   vlan <VID2>
+   authentication open 
+   authentication key-management wpa version 2
+   mbssid guest-mode
+   wpa-psk ascii 7 072834495D1D3E1012011F
+!
+no ipv6 cef
+!
+username Cisco password 7 047802150C2E
+!
+bridge irb
+!
+interface Dot11Radio0
+ no ip address
+ no ip route-cache
+ encryption vlan <VID1> mode ciphers aes-ccm    
+ encryption vlan <VID2> mode ciphers aes-ccm 
+ ssid company-<firstname>.<lastname>
+ ssid guest-<firstname>.<lastname>
+ antenna gain 0
+ stbc
+ mbssid
+ station-role root
+ world-mode dot11d country-code BE indoor
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 spanning-disabled
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+!
+interface Dot11Radio0.<VID1>
+ encapsulation dot1Q <VID1>
+ no ip route-cache
+ bridge-group 10
+ bridge-group 10 subscriber-loop-control
+ bridge-group 10 spanning-disabled
+ bridge-group 10 block-unknown-source
+ no bridge-group 10 source-learning
+ no bridge-group 10 unicast-flooding
+!
+interface Dot11Radio0.<VID2>
+ encapsulation dot1Q <VID2>
+ no ip route-cache
+ bridge-group 20
+ bridge-group 20 subscriber-loop-control
+ bridge-group 20 spanning-disabled
+ bridge-group 20 block-unknown-source
+ no bridge-group 20 source-learning
+ no bridge-group 20 unicast-flooding
+!
+interface Dot11Radio1
+ no ip address
+ no ip route-cache
+ encryption vlan <VID1> mode ciphers aes-ccm 
+ encryption vlan <VID2> mode ciphers aes-ccm 
+ ssid company-<firstname>.<lastname>
+ ssid guest-<firstname>.<lastname>
+ antenna gain 0
+ peakdetect
+ no dfs band block
+ stbc
+ mbssid
+ channel dfs
+ station-role root
+ world-mode dot11d country-code BE indoor
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 spanning-disabled
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+!
+interface Dot11Radio1.<VID1>
+ encapsulation dot1Q <VID1>
+ no ip route-cache
+ bridge-group 10
+ bridge-group 10 subscriber-loop-control
+ bridge-group 10 spanning-disabled
+ bridge-group 10 block-unknown-source
+ no bridge-group 10 source-learning
+ no bridge-group 10 unicast-flooding
+!
+interface Dot11Radio1.<VID2>
+ encapsulation dot1Q <VID2>
+ no ip route-cache
+ bridge-group 20
+ bridge-group 20 subscriber-loop-control
+ bridge-group 20 spanning-disabled
+ bridge-group 20 block-unknown-source
+ no bridge-group 20 source-learning
+ no bridge-group 20 unicast-flooding
+!
+interface GigabitEthernet0
+ no ip address
+ no ip route-cache
+ duplex auto
+ speed auto
+ bridge-group 1
+ bridge-group 1 spanning-disabled
+ no bridge-group 1 source-learning
+!
+interface GigabitEthernet0.<VID1>
+ encapsulation dot1Q <VID1>
+ no ip route-cache
+ bridge-group 10
+ bridge-group 10 spanning-disabled
+ no bridge-group 10 source-learning
+!
+interface GigabitEthernet0.<VID2>
+ encapsulation dot1Q <VID2>
+ no ip route-cache
+ bridge-group 20
+ bridge-group 20 spanning-disabled
+ no bridge-group 20 source-learning
+!
+interface BVI1
+ mac-address 003a.9aa9.9bf9
+ ip address dhcp
+ ipv6 address dhcp
+ ipv6 address autoconfig
+ ipv6 enable
+!
+ip forward-protocol nd
+ip http server
+no ip http secure-server
+ip http help-path http://www.cisco.com/warp/public/779/smbiz/prodconfig/help/eag
+!
+bridge 1 route ip
+!
+line con 0
+line vty 0 4
+ login local
+ transport input all
+!
+sntp server 172.21.0.100
+end

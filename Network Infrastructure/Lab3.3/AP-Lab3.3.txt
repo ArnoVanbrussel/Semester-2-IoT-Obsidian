@@ -1,0 +1,188 @@
+Current configuration : 3805 bytes
+!
+! Last configuration change at 16:24:52 UTC Thu Mar 21 2024
+version 15.3
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname Cisco-AP
+!
+!
+logging rate-limit console 9
+enable secret 5 $1$SUnj$y9kH/Pnxxw5kTaLUFkoDz/
+!
+no aaa new-model
+no ip source-route
+no ip cef
+!
+!
+!
+!
+dot11 pause-time 100
+dot11 syslog
+!
+dot11 ssid KeNo-Company
+   vlan 900
+   authentication open
+   authentication key-management wpa version 2
+   mbssid guest-mode
+   wpa-psk ascii 7 13261E0108032723382727
+!
+dot11 ssid KeNo-Visitors
+   vlan 910
+   authentication open
+   authentication key-management wpa version 2
+   mbssid guest-mode
+   wpa-psk ascii 7 112E0C0004062C1901393F
+!
+!
+!
+no ipv6 cef
+!
+!
+username Cisco password 7 072C285F4D06
+!
+!
+bridge irb
+!
+!
+!
+interface Dot11Radio0
+ no ip address
+ no ip route-cache
+ !
+ encryption vlan 900 mode ciphers aes-ccm
+ !
+ encryption vlan 910 mode ciphers aes-ccm
+ !
+ ssid KeNo-Company
+ !
+ ssid KeNo-Visitors
+ !
+ antenna gain 0
+ mbssid
+ station-role root
+ world-mode dot11d country-code BE indoor
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 spanning-disabled
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+!
+interface Dot11Radio0.900
+ encapsulation dot1Q 900
+ no ip route-cache
+ bridge-group 10
+ bridge-group 10 subscriber-loop-control
+ bridge-group 10 spanning-disabled
+ bridge-group 10 block-unknown-source
+ no bridge-group 10 source-learning
+ no bridge-group 10 unicast-flooding
+!
+interface Dot11Radio0.910
+ encapsulation dot1Q 910
+ no ip route-cache
+ bridge-group 20
+ bridge-group 20 subscriber-loop-control
+ bridge-group 20 spanning-disabled
+ bridge-group 20 block-unknown-source
+ no bridge-group 20 source-learning
+ no bridge-group 20 unicast-flooding
+!
+interface Dot11Radio1
+ no ip address
+ no ip route-cache
+ !
+ encryption vlan 900 mode ciphers aes-ccm
+ !
+ encryption vlan 910 mode ciphers aes-ccm
+ !
+ ssid KeNo-Company
+ !
+ ssid KeNo-Visitors
+ !
+ antenna gain 0
+ peakdetect
+ no dfs band block
+ mbssid
+ channel dfs
+ station-role root
+ world-mode dot11d country-code BE indoor
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 spanning-disabled
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+!
+interface Dot11Radio1.900
+ encapsulation dot1Q 900
+ no ip route-cache
+ bridge-group 10
+ bridge-group 10 subscriber-loop-control
+ bridge-group 10 spanning-disabled
+ bridge-group 10 block-unknown-source
+ no bridge-group 10 source-learning
+ no bridge-group 10 unicast-flooding
+!
+interface Dot11Radio1.910
+ encapsulation dot1Q 910
+ no ip route-cache
+ bridge-group 20
+ bridge-group 20 subscriber-loop-control
+ bridge-group 20 spanning-disabled
+ bridge-group 20 block-unknown-source
+ no bridge-group 20 source-learning
+ no bridge-group 20 unicast-flooding
+!
+interface GigabitEthernet0
+ no ip address
+ no ip route-cache
+ duplex auto
+ speed auto
+ bridge-group 1
+ bridge-group 1 spanning-disabled
+ no bridge-group 1 source-learning
+!
+interface GigabitEthernet0.900
+ encapsulation dot1Q 900
+ no ip route-cache
+ bridge-group 10
+ bridge-group 10 spanning-disabled
+ no bridge-group 10 source-learning
+!
+interface GigabitEthernet0.910
+ encapsulation dot1Q 910
+ no ip route-cache
+ bridge-group 20
+ bridge-group 20 spanning-disabled
+ no bridge-group 20 source-learning
+!
+interface BVI1
+ mac-address 0026.9957.2e1d
+ ip address dhcp
+ ipv6 address dhcp
+ ipv6 address autoconfig
+ ipv6 enable
+!
+ip forward-protocol nd
+ip http server
+no ip http secure-server
+ip http help-path http://www.cisco.com/warp/public/779/smbiz/prodconfig/help/eag
+!
+!
+bridge 1 route ip
+!
+!
+!
+line con 0
+line vty 0 4
+ login local
+ transport input all
+!
+sntp server 172.21.0.100
+end
+

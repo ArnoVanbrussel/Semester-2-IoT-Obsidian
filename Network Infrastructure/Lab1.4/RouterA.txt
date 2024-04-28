@@ -1,0 +1,67 @@
+conf t
+hostname RBA
+exit
+
+conf t
+int gi0/1
+ip address 192.168.0.1 255.255.255.224
+ip nat inside
+desc LANA
+no shut
+end
+
+conf t
+service dhcp
+ip dhcp pool LANA
+network 192.168.0.0 255.255.255.224
+default-router 192.168.0.1
+dns-server 172.20.4.140 172.20.4.141
+ip dhcp excluded-address 192.168.0.1
+end
+
+conf t
+ip nat inside source list 1 interface gi0/0 overload
+access-list 1 permit 192.168.0.0 0.0.0.31
+
+conf t
+int gi0/0
+desc WANA
+ip address 172.23.80.202 255.255.254.0
+ip nat outside
+no shut
+
+##################################################
+ISAKMP BRA
+##################################################
+
+crypto isakmp policy 1
+encr 3des
+hash md5
+authentication pre-share
+group 2
+lifetime 86400
+
+crypto isakmp key firewallcx address 172.23.80.203
+ip access-list extended VPN-TRAFFIC
+permit ip 192.168.0.0 0.0.0.31 172.31.15.0 0.0.0.127
+crypto ipsec transform-set TS esp-3des esp-md5-hmac
+
+crypto map CMAP 10 ipsec-isakmp
+set peer 172.23.80.203
+set transform-set TS
+match address VPN-TRAFFIC
+
+int gi0/0
+crypto map CMAP
+end
+
+ip nat inside source list 100 interface gi0/0 overload
+access-list 100 remark -=[Define NAT Service]=-
+access-list 100 deny ip 192.168.0.0 0.0.0.31 172.31.15.0 0.0.0.127
+access-list 100 permit ip 192.168.0.0 0.0.0.31 any
+access-list 100 remark
+
+ping 172.31.15.1 source gi0/0
+show crypto session
+
+

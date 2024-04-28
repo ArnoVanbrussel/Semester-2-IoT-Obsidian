@@ -1,0 +1,202 @@
+Topics you should understand to start with lab type 2.3
+-------------------------------------------------------
+- untagged vs tagged traffic
+- trunk port
+- spanning tree - detecting loops
+    enabling rapid per-vlan spanning tree
+    
+- link aggregation
+    - Very important!!! Do NOT apply commands on the individual ports, except for the channel-group command
+
+----------------------------------------------------------------------------------------------------------
+hostname layer3-switch
+
+vlan 10
+name Servers
+int vlan10
+descr Servers
+ip add 192.168.10.1 255.255.255.0
+no ip proxy-arp
+no shut
+ 
+vlan 20
+name IT
+int vlan20
+descr IT
+ip add 192.168.20.1 255.255.255.0
+ip helper-address 192.168.10.2
+no ip proxy-arp
+no shut
+
+vlan 30
+name Administration
+int vlan30
+descr Administration
+ip add 192.168.30.1 255.255.255.0
+ip helper-address 192.168.10.2
+no ip proxy-arp
+no shut
+
+vlan 40
+name Production
+int vlan40
+descr Production
+ip add 192.168.40.1 255.255.255.0
+ip helper-address 192.168.10.2
+no ip proxy-arp
+no shut
+
+vlan 100
+name Mgt
+int vlan100
+descr Mgt
+ip add 192.168.100.1 255.255.255.0
+no ip proxy-arp
+no shut
+
+vlan 999
+name Native
+int vlan999
+descr Native
+no ip adress
+no shut
+
+ip routing
+
+ip route 0.0.0.0 0.0.0.0 192.168.20.254
+
+int ra fa0/1-8
+switchport mode access
+switchport access vlan 10
+
+int ra fa0/9-16
+switchport mode access
+switchport access vlan 20
+
+int ra fa0/17-23
+switchport mode access
+switchport access vlan 30 
+
+int fa0/24
+switchport trunk encap dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,40,100
+switchport trunk native vlan 999
+
+---------------------------------------------------------------------------------------------------------------------------------------
+hostname broadbandrouter
+
+int fa0/0
+descr LAN
+ip address 192.168.20.254 255.255.255.0
+ip nat inside
+no shut
+
+int fa0/1
+descr WAN
+ip address dhcp
+ip nat outside
+no shut
+
+ip route 0.0.0.0 0.0.0.0 fa0/1
+
+ip nat inside source list 1 interface fa0/1 overload
+
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+access-list 1 permit 192.168.30.0 0.0.0.255
+access-list 1 permit 192.168.40.0 0.0.0.255
+
+ip route 192.168.10.0 255.255.255.0 192.168.20.1
+ip route 192.168.30.0 255.255.255.0 192.168.20.1
+ip route 192.168.40.0 255.255.255.0 192.168.20.1
+
+---------------------------------------------------------------------------------------------------------------------------------------
+configuring my dhcp server - it can also be on the broadbandrouter ...
+adding an extra DHCP scope voor subnet 192.168.40.0/24
+---------------------------------------------------------------------------------------------------------------------------------------
+hostname layer2-switch
+
+vlan 10
+name Servers
+int vlan10
+descr Servers
+no shut
+
+vlan 20
+name IT
+int vlan20
+descr IT
+no shut
+
+vlan 40
+name Production
+int vlan40
+descr Production
+no shut
+
+vlan 100
+name Mgt
+int vlan100
+descr Mgt
+ip add 192.168.100.2 255.255.255.0
+no shut
+
+vlan 999
+name Native
+int vlan999
+descr Native
+no ip adress
+no shut
+
+ip default-gateway 192.168.100.1
+
+int ra fa0/1-8
+switchport mode access
+switchport access vlan 10
+
+int ra fa0/9-16
+switchport mode access
+switchport access vlan 20
+
+int ra fa0/17-22
+switchport mode access
+switchport access vlan 40
+
+int fa0/24
+switchport mode trunk
+switchport trunk native vlan 999
+
+---------------------------------------------------------------------------------------------------------------------------------------
+enabling rapid per-vlan spanning-tree mode 
+
+on both switches
+
+spanning-tree mode rapid-pvst
+
+---------------------------------------------------------------------------------------------------------------------------------------
+setting up the aggregated link
+
+#on layer-3
+
+default int ra gi1/0/23-24
+
+int ra gi1/0/23-24
+channel-group 1 mode active
+
+int po1
+switchport trunk encap dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20,40,100,900,910
+switchport trunk native vlan 999
+
+#on layer-2
+
+default int ra fa0/23-24
+
+int ra fa0/23-24
+channel-group 1 mode active
+
+int po1
+switchport mode trunk
+switchport trunk native vlan 999

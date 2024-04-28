@@ -1,0 +1,212 @@
+Current configuration : 4728 bytes
+!
+! Last configuration change at 02:04:33 UTC Mon Mar 1 1993
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname layer2-swich
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-806955392
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-806955392
+ revocation-check none
+ rsakeypair TP-self-signed-806955392
+!
+!
+crypto pki certificate chain TP-self-signed-806955392
+ certificate self-signed 02
+  30820242 308201AB A0030201 02020102 300D0609 2A864886 F70D0101 04050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 38303639 35353339 32301E17 0D393330 33303130 31303034
+  345A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3830 36393535
+  33393230 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
+  E897F350 2FDBADD9 AF21CC6B 700DD955 803CDAD9 E17EDD4C DD2AB2B8 677B0AD9
+  9472510B 8D0B88AA B06477FE 7A744FE2 DD80F840 BDEC63A5 C97D8493 D83E50B5
+  08749CF8 09A13DD7 99AA1235 0B7093D4 966DDBBE 46133B1F 2AC511B5 98582022
+  5708E23A 7EA1EC3D 86993776 37F4A6F3 69189DCC E1E1B693 F0B131F9 0A230F77
+  02030100 01A36C30 6A300F06 03551D13 0101FF04 05300301 01FF3017 0603551D
+  11041030 0E820C6C 61796572 322D7377 69636830 1F060355 1D230418 30168014
+  44E07AF3 D124F8DF 92DFC887 D168ACA2 9768F945 301D0603 551D0E04 16041444
+  E07AF3D1 24F8DF92 DFC887D1 68ACA297 68F94530 0D06092A 864886F7 0D010104
+  05000381 8100D175 B9CE4805 B851E3F4 6873172E 90A81A8E A1A3623A 0F74B31D
+  3009CFA4 5DB4EDDE 11180B73 F25AB407 8ABE304B 894B61D2 523A11CE 72FD99A4
+  15CD3240 441E9734 87CBFAC2 F259D8AB 7A486D98 76943F2B 402652B6 41074BF0
+  287DB421 6E956D5A 408DE866 DB1655F7 6C9802C9 C142D2D2 921A2D08 EB21C998
+  9ABF6D6F 5A1F
+        quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk native vlan 999
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/2
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/5
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/6
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/7
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/9
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/10
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/11
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/12
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/13
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/14
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/15
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/16
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/17
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/18
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/19
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/20
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/21
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/22
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/23
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ switchport trunk native vlan 999
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ description Servers
+ no ip address
+!
+interface Vlan20
+ description IT
+ no ip address
+!
+interface Vlan30
+ description Administration
+ no ip address
+!
+interface Vlan100
+ description Mgt
+ ip address 192.168.100.2 255.255.255.0sho 
+!
+interface Vlan900
+ description keno-company
+ no ip address
+!
+interface Vlan910
+ description keno-visitors
+ no ip address
+!
+interface Vlan999
+ description Native
+ no ip address
+!
+ip default-gateway 192.168.1.1
+ip http server
+ip http secure-server
+logging esm config
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end

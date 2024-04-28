@@ -1,0 +1,44 @@
+conf t
+hostname RouterA
+exit
+
+conf t
+int gi0/1
+ip address 192.168.0.1 255.255.255.224
+desc LANA
+no shut
+end
+
+conf t
+service dhcp
+ip dhcp pool LANA
+network 192.168.0.0 255.255.255.224
+default-router 192.168.0.1
+dns-server 172.20.4.140 172.20.4.141
+ip dhcp excluded-address 192.168.0.1
+end
+
+conf t
+int gi0/0
+ip address 192.168.0.33 255.255.255.224
+desc LANB
+no shut
+end
+
+conf t
+service dhcp
+ip dhcp pool LANB
+network 192.168.0.32 255.255.255.224
+default-router 192.168.0.33
+dns-server 172.20.4.140 172.20.4.141
+ip dhcp excluded-address 192.168.0.33
+end
+
+conf t
+int se0/1/1
+ip address 10.20.30.41 255.255.255.252
+desc SerialA
+no shut
+end
+
+ip route 0.0.0.0 0.0.0.0 10.20.30.42

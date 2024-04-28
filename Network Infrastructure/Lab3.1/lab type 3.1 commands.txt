@@ -1,0 +1,138 @@
+Topics you should understand to start with lab type 3.1
+-------------------------------------------------------
+- router - subinterface concept
+
+----------------------------------------------------------------------------------------------------------
+hostname broadbandrouter
+
+int gi0/0
+descr LAN
+no ip address
+duplex auto
+speed auto
+no shut
+
+int gi0/0.1
+descr Servers
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+ip nat inside
+
+int gi0/0.2
+descr IT
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+ip nat inside
+
+int gi0/0.3
+descr Administration
+encapsulation dot1Q 30
+ip address 192.168.30.1 255.255.255.0
+ip nat inside
+
+int gi0/0.100
+descr Mgt
+encapsulation dot1Q 100
+ip address 192.168.100.1 255.255.255.0
+ip nat inside
+
+int gi0/0.999
+descr Native
+
+int gi0/1
+descr WAN
+ip address dhcp
+ip nat outside
+no shut
+
+ip route 0.0.0.0 0.0.0.0 gi0/1
+
+ip nat inside source list 1 interface gi0/1 overload
+
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+access-list 1 permit 192.168.30.0 0.0.0.255
+
+service dhcp
+
+ip dhcp pool 10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+dns-server 8.8.8.8
+domain-name mct.local
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+
+ip dhcp pool 20
+network 192.168.20.0 255.255.255.0
+default-router 192.168.20.1
+dns-server 8.8.8.8
+domain-name mct.local
+ip dhcp excluded-address 192.168.20.1 192.168.20.10
+
+ip dhcp pool 30
+network 192.168.30.0 255.255.255.0
+default-router 192.168.30.1
+dns-server 8.8.8.8
+domain-name mct.local
+ip dhcp excluded-address 192.168.30.1 192.168.30.10
+
+ip dhcp pool 100
+network 192.168.100.0 255.255.255.0
+default-router 192.168.100.1
+dns-server 8.8.8.8
+domain-name mct.local
+ip dhcp excluded-address 192.168.100.1 192.168.100.10
+
+---------------------------------------------------------------------------------------------------------------------------------------
+hostname layer2-switch
+
+vlan 10
+name Servers
+int vlan10
+descr Servers
+no shut
+
+vlan 20
+name IT
+int vlan20
+descr IT
+no shut
+
+vlan 30
+name Administration
+int vlan30
+descr Administration
+no shut
+
+vlan 100
+name Mgt
+int vlan100
+descr Mgt
+ip address 192.168.100.2 255.255.255.0
+no shut
+
+vlan 999
+name Native
+int vlan999
+descr Native
+no shut
+
+ip default-gateway 192.168.100.1
+
+int ra fa0/1-8
+switchport mode access
+switchport access vlan 10
+
+int ra fa0/9-16
+switchport mode access
+switchport access vlan 20
+
+int ra fa0/17-23
+switchport mode access
+switchport access vlan 30
+
+int fa0/24
+switchport mode trunk
+switchport trunk native vlan 999
+
+---------------------------------------------------------------------------------------------------------------------------------------

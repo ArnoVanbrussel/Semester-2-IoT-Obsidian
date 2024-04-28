@@ -4,59 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "451dc00e73a5dcfa",
+        "id": "227b541d447a8840",
         "type": "tabs",
         "children": [
           {
-            "id": "6f5679b9b161247a",
+            "id": "dc50f68422ba797b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux & Windows/Windows/Windows Theorie.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a12659051bc2d6d5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b8f47f46431462b8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux & Windows/Windows/Windows Theorie.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7b0b4ed37bb3c151",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
+                "file": "Applied IoT/Applied IoT.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -122,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
+                "file": "Applied IoT/Applied IoT.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linux & Windows/Windows/Windows Table of Contents.md",
+                "file": "Applied IoT/Applied IoT.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Linux & Windows/Windows/Windows Table of Contents.md"
+                "file": "Applied IoT/Applied IoT.md"
               }
             }
           }
@@ -185,35 +148,36 @@
   },
   "active": "c9b7866857a9af3e",
   "lastOpenFiles": [
+    "Network Infrastructure/Lab3.3/AP-Lab3.3.txt",
+    "Network Infrastructure/Lab3.3/L2-Switch-Lab3.3.txt",
+    "Network Infrastructure/Lab3.3/config-pfsense-labo3.3.xml",
+    "Network Infrastructure/Lab3.3",
+    "Network Infrastructure/Lab3.2/L2-Switch-Lab3.2.txt",
+    "Network Infrastructure/Lab3.2/config-pfsense-labo3.2.xml",
+    "Network Infrastructure/Lab3.2",
+    "Network Infrastructure/Lab3.1/labo3.1-layer2",
+    "Network Infrastructure/Lab3.1/lab type 3.1 commands.txt",
+    "Network Infrastructure/Lab3.1/BR_DHCP_Lab3.1",
+    "Network Infrastructure/Lab3.1",
+    "OS & Virtualisation/OS & Virtualisation.md",
+    "Network Infrastructure/Network Infrastructure.md",
+    "Linux & Windows/Linux/Linux Practical Guide.md",
+    "Linux & Windows/Windows/Windows Theorie.md",
+    "Linux & Windows/Windows/Windows Table of Contents.md",
     "Linux & Windows/Assets/Pasted image 20240428112242.png",
     "Linux & Windows/Windows/Windows Practical Guide.md",
-    "Linux & Windows/Assets",
     "Linux & Windows/Assets/Pasted image 20240428112752.png",
     "Linux & Windows/Assets/Pasted image 20240428112738.png",
     "Linux & Windows/Assets/Pasted image 20240428112724.png",
     "Linux & Windows/Assets/Pasted image 20240428112645.png",
     "Linux & Windows/Assets/Pasted image 20240428112632.png",
     "Linux & Windows/Assets/Pasted image 20240428112550.png",
-    "Linux & Windows/Windows/Windows Theorie.md",
-    "Linux & Windows/Windows",
-    "Linux & Windows/Linux/Linux.md",
-    "Linux & Windows/Windows/Windows Table of Contents.md",
-    "Linux & Windows/Linux",
     "Cisco NWI/NWI - Intro.md",
     "Cisco NWI/Assets/Pasted image 20240309094932.png",
     "Cisco NWI/Assets/Pasted image 20240304094620.png",
     "Cisco NWI/Assets/Pasted image 20240309095303.png",
-    "2.3.7-packet-tracer---navigate-the-ios.pka",
-    "Network Infrastructure/Network Infrastructure.md",
-    "Cisco NWI/Assets",
-    "Cisco NWI",
     "README.md",
-    "Network Infrastructure/assets/IP Routing.pdf",
     "Applied IoT/Applied IoT.md",
-    "OS & Virtualisation/OS & Virtualisation.md",
-    "Linux & Windows",
-    "Network Infrastructure/assets/Static_Routing.pdf",
-    "Network Infrastructure/assets/IP Addressing.pdf",
     "Welcome.md"
   ]
 }

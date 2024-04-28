@@ -1,0 +1,224 @@
+
+!
+! Last configuration change at 18:44:59 UTC Mon Jan 2 2006
+! NVRAM config last updated at 18:45:01 UTC Mon Jan 2 2006
+! NVRAM config last updated at 18:45:01 UTC Mon Jan 2 2006
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname BRB
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+ip dhcp excluded-address 10.20.20.1
+ip dhcp excluded-address 10.20.20.65
+ip dhcp excluded-address 10.20.20.129
+ip dhcp excluded-address 10.20.20.193
+ip dhcp excluded-address 192.168.20.1
+!
+ip dhcp pool 10
+ network 10.20.20.0 255.255.255.192
+ default-router 10.20.20.1 
+ dns-server 172.20.4.140 172.20.4.141 
+ domain-name mct.local
+!
+ip dhcp pool 20
+ network 10.20.20.64 255.255.255.192
+ default-router 10.20.20.65 
+ dns-server 172.20.4.140 172.20.4.141 
+ domain-name mct.local
+!
+ip dhcp pool 30
+ network 10.20.20.128 255.255.255.192
+ default-router 10.20.20.129 
+ dns-server 172.20.4.140 172.20.4.141 
+ domain-name mct.local
+!
+ip dhcp pool 40
+ network 10.20.20.192 255.255.255.192
+ default-router 10.20.20.193 
+ dns-server 172.20.4.140 172.20.4.141 
+ domain-name mct.local
+!
+ip dhcp pool 100
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1 
+ dns-server 172.20.4.140 172.20.4.141 
+ domain-name mct.local
+!
+!
+ip cef
+no ip domain lookup
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+crypto pki token default removal timeout 0
+!
+!
+!
+!
+license udi pid CISCO2801 sn FCZ1103100Z
+!
+redundancy
+!
+!
+! 
+!
+crypto isakmp policy 1
+ encr 3des
+ hash md5
+ authentication pre-share
+ group 2
+crypto isakmp key firewallcx address 172.23.80.51
+!
+!
+crypto ipsec transform-set TS esp-3des esp-md5-hmac 
+!
+crypto map CMAP 10 ipsec-isakmp 
+ set peer 172.23.80.51
+ set transform-set TS 
+ match address VPN-TRAFFIC
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ description LAN
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.1
+ encapsulation dot1Q 10
+ ip address 10.20.20.1 255.255.255.192
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface FastEthernet0/0.2
+ encapsulation dot1Q 20
+ ip address 10.20.20.65 255.255.255.192
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface FastEthernet0/0.3
+ description Administration
+ encapsulation dot1Q 30
+ ip address 10.20.20.129 255.255.255.192
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface FastEthernet0/0.40
+ description Production
+ encapsulation dot1Q 40
+ ip address 10.20.20.193 255.255.255.192
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface FastEthernet0/0.100
+ description Mgt
+ encapsulation dot1Q 100
+ ip address 192.168.20.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface FastEthernet0/1
+ description WAN
+ ip address 172.23.80.52 255.255.254.0
+ ip nat outside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+ crypto map CMAP
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+ no fair-queue
+ clock rate 125000
+!
+interface Serial0/1/1
+ no ip address
+ shutdown
+ clock rate 125000
+!
+interface FastEthernet0/3/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/3/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip nat inside source list 100 interface FastEthernet0/1 overload
+ip route 0.0.0.0 0.0.0.0 172.23.80.1
+ip route 10.20.20.0 255.255.255.0 FastEthernet0/0
+!
+ip access-list extended VPN-TRAFFIC
+ permit ip 10.20.20.0 0.0.0.255 10.10.10.0 0.0.0.255
+!
+access-list 100 remark -=[Define NAT Service]=-  
+access-list 100 deny   ip 10.20.20.0 0.0.0.255 10.10.10.0 0.0.0.255
+access-list 100 permit ip 10.20.20.0 0.0.0.255 any
+access-list 100 remark 
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+end
