@@ -1,0 +1,218 @@
+LAN A
+##### BR-A #########################################################
+ena
+conf t
+hostname BR-A
+banner motd # This is a secure router, beware! #
+ip routing
+
+int fa0/0
+ip address 78.55.44.1 255.255.255.0
+descr WAN
+ip nat outside
+no shut
+
+int fa0/1
+descr LAN
+ip address 10.10.10.66 255.255.255.192
+ip nat inside 
+no shut
+
+ip route 0.0.0.0 0.0.0.0 fa0/0
+ip route 10.10.10.0 255.255.255.0 10.10.10.65
+
+ip nat inside source list 1 int fa0/0 overload
+
+access-list 1 permit 10.10.10.0 0.0.0.255
+
+service dhcp
+ip dhcp pool LAN-A-10
+network 10.10.10.0 255.255.255.192
+default-router 10.10.10.1
+dns-server 8.8.8.8
+domain-name lanA10.be
+ip dhcp excluded-address 10.10.10.1 10.10.10.10
+
+ip dhcp pool LAN-A-20
+network 10.10.10.64 255.255.255.192
+default-router 10.10.10.65
+dns-server 8.8.8.8
+domain-name lanA20.be
+ip dhcp excluded-address 10.10.10.65 10.10.10.70
+
+ip dhcp pool LAN-A-30
+network 10.10.10.128 255.255.255.192
+default-router 10.10.10.129
+dns-server 8.8.8.8
+domain-name lanA30.be
+ip dhcp excluded-address 10.10.10.129 10.10.10.130
+
+ip dhcp pool LAN-A-40
+network 10.10.10.192 255.255.255.192
+default-router 10.10.10.193
+dns-server 8.8.8.8
+domain-name lanA40.be
+ip dhcp excluded-address 10.10.10.193 10.10.10.200
+
+end
+write
+copy r s
+
+no ip nat inside source list 1 int fa0/0 overload
+no access-list 1 permit 10.10.10.0 0.0.0.255
+
+crypto isakmp policy 1
+
+encr 3des
+hash md5
+authentication pre-share
+group 2
+lifetime 86400
+crypto isakmp key firewallcx address 78.55.44.2
+ip access-list extended VPN-TRAFFIC
+permit ip 10.10.10.0 0.0.0.255 10.20.20.0 0.0.0.255
+crypto ipsec transform-set TS esp-3des esp-md5-hmac
+crypto map CMAP 10 ipsec-isakmp
+set peer 78.55.44.2
+set transform-set TS
+match address VPN-TRAFFIC
+int fa0/0
+crypto map CMAP
+
+ip nat inside source list 100 interface fa0/0 overload
+access-list 100 remark -=[Define NAT Service]=-  
+access-list 100 deny ip 10.10.10.0 0.0.0.255 10.20.20.0 0.0.0.255
+access-list 100 permit ip 10.10.10.0 0.0.0.255 any  
+access-list 100 remark
+
+##### L3 A #########################################################
+ena
+conf t
+hostname L3-A
+ip routing
+
+vlan 10
+int vlan10
+ip address 10.10.10.1 255.255.255.192
+ip helper-address 10.10.10.66
+no shut
+int range fa0/1-6
+switchport mode access
+switchport access vlan 10
+no shut
+
+vlan 20
+int vlan20
+ip address 10.10.10.65 255.255.255.192
+no shut
+int range fa0/7-12
+switchport mode access
+switchport access vlan 20
+no shut
+
+vlan 30
+int vlan30
+ip address 10.10.10.129 255.255.255.192
+ip helper-address 10.10.10.66
+no shut
+int range fa0/13-18
+switchport mode access
+switchport access vlan 30
+no shut
+
+vlan 40
+int vlan40
+ip address 10.10.10.193 255.255.255.192
+ip helper-address 10.10.10.66
+no shut
+int range fa0/19-24
+switchport mode access
+switchport access vlan 40
+no shut
+
+vlan 999
+name native
+int vlan999
+no ip address
+no shut
+
+default int gi0/1
+default int gi0/2
+
+int range gi0/1-2
+channel-group 1 mode active
+
+int port-channel1
+descr L3-EtherChannel
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,40
+switchport trunk native vlan 999
+
+ip route 0.0.0.0 0.0.0.0 10.10.10.66
+
+end
+write
+copy r s
+
+##### L2 A #########################################################
+ena
+conf t
+hostname L2-A
+
+vlan 10
+int vlan10
+no ip address
+no shut
+int range fa0/1-6
+switchp mode access
+switchp access vlan 10
+no shut
+
+vlan 20
+int vlan20
+no ip address
+no shut
+int range fa0/7-12
+switchp mode access
+switchp access vlan 20
+no shut
+
+vlan 30
+int vlan30
+no ip address
+no shut
+int range fa0/13-18
+switchp mode access
+switchp access vlan 30
+no shut
+
+vlan 40
+int vlan40
+no ip address
+no shut
+int range fa0/19-24
+switchp mode access
+switchp access vlan 40
+no shut
+
+vlan 999
+name native
+int vlan999
+no ip address
+no shut
+
+default int gi0/1
+default int gi0/2
+
+int range gi0/1-2
+channel-group 1 mode active
+
+int port-channel1
+descr L2-EtherChannel
+switchp mode trunk
+switchp trunk native vlan 999
+
+end
+write
+copy r s

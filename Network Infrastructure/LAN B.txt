@@ -1,0 +1,184 @@
+LAN B
+##### BR-B #########################################################
+ena
+conf t
+hostname BR-B
+banner motd # This is a secure router, beware! #
+ip routing
+
+int fa0/0
+ip address 78.55.44.2 255.255.255.0
+descr WAN
+ip nat outside
+no shut
+
+int fa0/1
+descr LAN
+no ip address
+no shut
+
+int fa0/1.10
+encapsulation dot1Q 10
+ip address 10.20.20.1 255.255.255.192
+ip nat inside
+no shut
+
+int fa0/1.20
+encapsulation dot1Q 20
+ip address 10.20.20.65 255.255.255.192
+ip nat inside
+no shut
+
+int fa0/1.30
+encapsulation dot1Q 30
+ip address 10.20.20.129 255.255.255.192
+ip nat inside
+no shut
+
+int fa0/1.40
+encapsulation dot1Q 40
+ip address 10.20.20.193 255.255.255.192
+ip nat inside
+no shut
+
+int fa0/1.999
+encapsulation dot1Q 999 native
+no shut
+
+ip route 0.0.0.0 0.0.0.0 fa0/0
+
+ip nat inside source list 1 int fa0/0 overload
+
+access-list 1 permit 10.20.20.0 0.0.0.255
+
+service dhcp
+ip dhcp pool LAN-B-10
+network 10.20.20.0 255.255.255.192
+default-router 10.20.20.1
+dns-server 8.8.8.8
+domain-name lanB10.be
+ip dhcp excluded-address 10.20.20.1 10.20.20.10
+
+service dhcp
+ip dhcp pool LAN-B-20
+network 10.20.20.64 255.255.255.192
+default-router 10.20.20.65
+dns-server 8.8.8.8
+domain-name lanB20.be
+ip dhcp excluded-address 10.20.20.65 10.20.20.70
+
+service dhcp
+ip dhcp pool LAN-B-30
+network 10.20.20.128 255.255.255.192
+default-router 10.20.20.129
+dns-server 8.8.8.8
+domain-name lanB30.be
+ip dhcp excluded-address 10.20.20.129 10.20.20.130
+
+service dhcp
+ip dhcp pool LAN-B-40
+network 10.20.20.192 255.255.255.192
+default-router 10.20.20.193
+dns-server 8.8.8.8
+domain-name lanB40.be
+ip dhcp excluded-address 10.20.20.193 10.20.20.200
+
+end
+write
+copy r s
+
+no ip nat inside source list 1 int fa0/0 overload
+no access-list 1 permit 10.20.20.0 0.0.0.255
+
+crypto isakmp policy 1
+
+encr 3des
+hash md5
+authentication pre-share
+group 2
+lifetime 86400
+crypto isakmp key firewallcx address 78.55.44.1
+ip access-list extended VPN-TRAFFIC
+permit ip 10.20.20.0 0.0.0.255 10.10.10.0 0.0.0.255
+crypto ipsec transform-set TS esp-3des esp-md5-hmac
+crypto map CMAP 10 ipsec-isakmp
+set peer 78.55.44.1
+set transform-set TS
+match address VPN-TRAFFIC
+int fa0/0
+crypto map CMAP
+
+ip nat inside source list 100 interface fa0/0 overload
+access-list 100 remark -=[Define NAT Service]=-  
+access-list 100 deny ip 10.20.20.0 0.0.0.255 10.10.10.0 0.0.0.255
+access-list 100 permit ip 10.20.20.0 0.0.0.255 any
+access-list 100 remark
+
+##### L2-B #########################################################
+ena
+conf t
+vlan 10
+name Servers
+int vlan10
+descr Servers
+no shut
+
+vlan 20
+name IT
+int vlan20
+descr IT
+no shut
+
+vlan 30
+name Administration
+int vlan30
+descr Administration
+no shut
+
+vlan 40
+name Production
+int vlan40
+descr Production
+no shut
+
+vlan 100
+name Mgt
+int vlan100
+descr Mgt
+ip address 192.168.20.2 255.255.255.0
+no shut
+
+vlan 999
+name Native
+int vlan999
+descr Native
+no shut
+end
+
+conf t
+ip default-gateway 192.168.20.1
+
+int ra fa0/1-8
+switchport mode access
+switchport access vlan 10
+
+int ra fa0/9-16
+switchport mode access
+switchport access vlan 20
+
+int ra fa0/17-23
+switchport mode access
+switchport access vlan 30
+
+int fa0/24
+switchport mode trunk
+switchport trunk native vlan 999
+
+end 
+
+write
+
+
+
+
+

@@ -17,7 +17,7 @@
 8. Security → Adavanced → Disabel Inheritance → convert inherited → ok
 9. Edit → remove everyone exept admin → add Authenticated Users → ok![[Pasted image 20240428112645.png]]
 10. Finish
-
+11. Users & Computers -> dubbelklik user -> profile -> Connect -> O: -> \\win00-ms\cde_homedirs\%username%
 # Creating an Extra UPN
 
 An extra UPN (User Principal Name) can be created in **Active Directory Domains and Trusts**. Follow these steps:

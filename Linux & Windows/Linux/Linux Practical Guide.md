@@ -450,7 +450,7 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 > iptables -A INPUT -p tcp -m tcp --dport 5985 -j ACCEPT
 > iptables -A INPUT -p tcp -m tcp --dport 5986 -j ACCEPT
 
-1. apt -y install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit
+1. apt install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit
 2. nano /etc/resolv.conf
 ```
 domain hq.company.com
