@@ -47,6 +47,7 @@ banner motd
 #  +--------------------------------------+
 #
 ```
+
 ## Errors wegdoen
 ```
 ena
@@ -247,7 +248,7 @@ ip dhcp pool <name>
 network <(sub)network address> <subnet mask>
 default-router <default gateway>
 dns-server <dns server 1> <dns server 2>
-domain-name <domain FQDN>
+domai me <domain FQDN>1
 ip dhcp excluded-address <one IP>
 ip dhcp excluded-address <first IP> <last IP>
 show ip dhcp binding

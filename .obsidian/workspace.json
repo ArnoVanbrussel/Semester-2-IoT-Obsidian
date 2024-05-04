@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "fd7870a07d1a3935",
+        "id": "3252896ab16dfbf3",
         "type": "tabs",
         "children": [
           {
-            "id": "396ec0300f27a3b6",
+            "id": "a29162d377323c7e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Network Infrastructure/Practical Guide.md",
+                "file": "OS & Virtualisation/OS & Virtualisation.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Network Infrastructure/Practical Guide.md",
+                "file": "OS & Virtualisation/OS & Virtualisation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network Infrastructure/Practical Guide.md",
+                "file": "OS & Virtualisation/OS & Virtualisation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network Infrastructure/Practical Guide.md"
+                "file": "OS & Virtualisation/OS & Virtualisation.md"
               }
             }
           }
@@ -146,19 +146,29 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c9b7866857a9af3e",
+  "active": "a29162d377323c7e",
   "lastOpenFiles": [
+    "OS & Virtualisation/Assets/Pasted image 20240504163459.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504162300.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504162234.png",
+    "OS & Virtualisation/OS & Virtualisation.md",
+    "OS & Virtualisation/Assets/Pasted image 20240504163447.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504163424.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504162642.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504162601.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504162549.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504160944.png",
+    "OS & Virtualisation/Assets/Pasted image 20240504162152.png",
+    "Network Infrastructure/Practical Guide.md",
     "Network Infrastructure/LAN B.txt",
     "Network Infrastructure/LAN A.txt",
     "Network Infrastructure/Combo.pkt",
     "Network Infrastructure/MC vragen.md",
     "Network Infrastructure/Examenvragen.md",
     "Network Infrastructure/Network Infrastructure.md",
-    "Network Infrastructure/Practical Guide.md",
     "Configuring Site to Site IPSec VPN Tunnel Between Cisco Routers (2).pdf",
     "Linux & Windows/Linux/Linux Practical Guide.md",
     "Linux & Windows/Windows/Windows Practical Guide.md",
-    "Linux & Windows/Assets/Pasted image 20240428151925.png",
     "Applied IoT/Applied IoT.md",
     "Network Infrastructure/Lab3.3/AP-Lab3.3.txt",
     "Network Infrastructure/Lab3.3/L2-Switch-Lab3.3.txt",
@@ -166,20 +176,9 @@
     "Network Infrastructure/Lab3.3",
     "Network Infrastructure/Lab3.2/L2-Switch-Lab3.2.txt",
     "Network Infrastructure/Lab3.2/config-pfsense-labo3.2.xml",
-    "Network Infrastructure/Lab3.2",
-    "OS & Virtualisation/OS & Virtualisation.md",
     "Linux & Windows/Windows/Windows Theorie.md",
     "Linux & Windows/Windows/Windows Table of Contents.md",
-    "Linux & Windows/Assets/Pasted image 20240428112242.png",
-    "Linux & Windows/Assets/Pasted image 20240428112752.png",
-    "Linux & Windows/Assets/Pasted image 20240428112738.png",
-    "Linux & Windows/Assets/Pasted image 20240428112724.png",
-    "Linux & Windows/Assets/Pasted image 20240428112645.png",
-    "Linux & Windows/Assets/Pasted image 20240428112632.png",
-    "Linux & Windows/Assets/Pasted image 20240428112550.png",
     "Cisco NWI/NWI - Intro.md",
-    "Cisco NWI/Assets/Pasted image 20240309094932.png",
-    "Cisco NWI/Assets/Pasted image 20240304094620.png",
     "README.md",
     "Welcome.md"
   ]
